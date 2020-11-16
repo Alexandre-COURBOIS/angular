@@ -1,0 +1,14 @@
+<li [ngClass]="{'list-group-item': true,
+ 'list-group-item-success' : !getStatusDevice(),
+ 'list-group-item-danger' : getStatusDevice()}">
+
+  <h4 [ngStyle]="{color: getColor()}">Devices : {{ deviceName }} -- Status : {{ getStatus() }}</h4>
+
+  <button class="btn btn-success" [disabled]="getStatus() === 'allumé'" (click)="onSwitchOnOne()">Allumer</button>
+  <button class="btn btn-danger" [disabled]="getStatus() === 'eteint'" (click)="onSwitchOffOne()">Eteindre</button>
+  <div style="display: inline" class="ml-auto">
+    <a [routerLink]="[id]">Détails</a>
+  </div>
+
+
+</li>

@@ -1,0 +1,19 @@
+<div class="col-xs-12">
+
+  <h2 style="text-align: center">My devices</h2>
+
+  <ul class="list-group align-content-center">
+
+    <app-device *ngFor="let device of devices; let i = index"
+                [indexOfDevice]="i"
+                [deviceName]="device.name"
+                [deviceStatus]="device.status"
+                [id]="device.id"
+    ></app-device>
+
+  </ul>
+
+  <button class="btn btn-success" (click)="onSwitchOn()">Tout allumer</button>
+  <button class="btn btn-danger" (click)="onSwitchOff()">Tout eteindre</button>
+
+</div>
