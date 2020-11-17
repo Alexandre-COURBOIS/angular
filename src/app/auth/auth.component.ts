@@ -36,7 +36,7 @@ export class AuthComponent implements OnInit {
   }
 
   getLoggedStatus() {
-    return this.authService.ifIsLogged();
+    return this.authService.loggedStatus();
   }
 
 

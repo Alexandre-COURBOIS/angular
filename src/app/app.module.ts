@@ -11,6 +11,7 @@ import { DeviceViewComponent } from './device-view/device-view.component';
 import {AuthService} from './services/auth.service';
 import { SingleDeviceComponent } from './single-device/single-device.component';
 import { Page404Component } from './page404/page404.component';
+import {AuthGuardService} from './services/auth-guard.service';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { Page404Component } from './page404/page404.component';
   ],
   providers: [
     DeviceService,
-    AuthService
+    AuthService,
+    AuthGuardService
   ],
   bootstrap: [AppComponent]
 })

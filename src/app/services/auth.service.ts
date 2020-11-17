@@ -19,7 +19,7 @@ export class AuthService {
     this.isAuth = false;
   }
 
-  ifIsLogged() {
+  loggedStatus() {
     let logStatus = localStorage.getItem('isLogged');
 
     if (logStatus === 'true') {
