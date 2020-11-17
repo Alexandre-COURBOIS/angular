@@ -6,10 +6,15 @@
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav">
       <a class="nav-item nav-link" routerLinkActive="active" routerLink="devices">Home</a>
+      <a class="nav-item nav-link" routerLinkActive="active" routerLink="edit">NewDevice</a>
+      <a class="nav-item nav-link" routerLinkActive="active" routerLink="users">Users</a>
     </div>
   </div>
   <div d="navbarNavAltMarkup" class="navbar-collapse collapse w-100 order-3 dual-collapse2">
     <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+        <a class="nav-item nav-link">Logged since {{ seconds }} sec.</a>
+      </li>
       <li class="nav-item" routerLinkActive="active">
         <a class="nav-item nav-link" routerLink="auth">Authentication</a>
       </li>

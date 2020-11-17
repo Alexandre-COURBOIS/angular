@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {DeviceService} from '../services/device.service';
+import {Subscription} from 'rxjs';
 
 @Component({
   selector: 'app-device-view',
@@ -11,8 +12,8 @@ export class DeviceViewComponent implements OnInit {
 
   isAuth = false;
 
-  // @ts-ignore
-  devices: any[];
+  devices!: any[];
+  deviceSubscription!: Subscription;
 
   constructor(private deviceService : DeviceService) {
 
@@ -25,7 +26,12 @@ export class DeviceViewComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.devices = this.deviceService.devices
+    this.deviceSubscription = this.deviceService.deviceSubject.subscribe(
+      (devices: any[]) => {
+        this.devices = devices;
+      }
+    );
+    this.deviceService.emitDeviceSubject();
   }
 
   onSwitchOn() {
@@ -36,4 +42,11 @@ export class DeviceViewComponent implements OnInit {
     this.deviceService.switchOffAll()
   }
 
+  onDatabaseSave() {
+    this.deviceService.saveDeviceOnDatabase();
+  }
+
+  getDeviceOnDatabase(){
+  this.deviceService.getDatabaseDevice()
+  }
 }

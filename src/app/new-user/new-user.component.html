@@ -1,0 +1,27 @@
+<div class="col-sm-8 col-sm-offset-2">
+  <!--Ici on se lie à l'objet formGroup de manière dynamique avec angular d'ou les [] -->
+  <form [formGroup]="userForm" (ngSubmit)="onSubmitForm()">
+    <div class="form-group">
+      <label for="_firstName">Surname</label>
+      <input class="form-control" type="text" name="_firstName" id="_firstName" formControlName="_firstName">
+      <label for="_lastName">Name</label>
+      <input class="form-control" type="text" name="_lastName" id="_lastName" formControlName="_lastName">
+      <label for="_email">Email</label>
+      <input class="form-control" type="text" name="_email" id="_email" formControlName="_email">
+      <label for="_age">Age</label>
+      <input class="form-control" type="text" name="_age" id="_age" formControlName="_age">
+    </div>
+    <div formArrayName="_hobbies">
+      <h3 class="h3">hobbies</h3>
+      <div class="form-group" *ngFor="let hobbyControl of getHobbies().controls; let i = index">
+        <!--Les crochets autour de formControlName permette de se lier à cet attribu et donc de passer dans le tableau via l'index i-->
+        <input type="text" name="_hobbies" [formControlName]="i" class="form-control" id="_hobbies">
+      </div>
+      <!--Déclenche la fonction addHobby()-->
+      <button type="button" class="btn btn-primary" (click)="addHobby()">Add a hobby</button>
+
+    </div>
+    <!--Je lie le fait que le bouton soit désactiver au validator du contenu de mon formulaire (.invalid)-->
+    <button class="btn btn-success" type="submit" [disabled]="userForm.invalid">Register</button>
+  </form>
+</div>
