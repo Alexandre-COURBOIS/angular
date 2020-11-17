@@ -13,7 +13,7 @@ export class AuthGuardService implements CanActivate{
   // @ts-ignore
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
 
-    if (this.authService.loggedStatus() && this.authService.isAuth) {
+    if (this.authService.loggedStatus()) {
       return true;
     } else {
       this.router.navigate(['/auth']);
